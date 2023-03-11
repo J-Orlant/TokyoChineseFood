@@ -7,3 +7,4 @@ Tema Project : Aplikasi Dekstop
 Judul        : Tokyo Chinese Food
 
 Link Class Diagram : 
+https://app.diagrams.net/#G194bC5jX9Kr8q30i6VVroMoJzrr646tNL
