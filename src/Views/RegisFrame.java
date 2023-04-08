@@ -15,7 +15,7 @@ import javax.swing.SwingConstants;
 public class RegisFrame extends JFrame{
 
     private JLabel headerLabel = new JLabel("REGISTER");
-    
+
     private JPanel centerJPanel = new JPanel(new GridLayout(3,2));
 
     private JLabel usernameLabel = new JLabel("Username");
