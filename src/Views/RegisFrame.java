@@ -1,6 +1,8 @@
 package Views;
 
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.*;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -26,6 +28,20 @@ public class RegisFrame extends JFrame{
 
     private JPanel footerJPanel = new JPanel();
     private JButton submitBtn = new JButton("Register");
+    private JLabel insertJLabel = new JLabel();
+
+    public JButton setSubmitBtn(JButton submitBtn) {
+        this.submitBtn = submitBtn;
+        submitBtn.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String name = usernameField.getText();
+                insertJLabel.setText("Hello " + name);
+            }
+        });
+        return submitBtn;
+    }
 
     public RegisFrame() {
         headerLabel.setHorizontalAlignment(SwingConstants.CENTER); //biar ketengah labelny
@@ -39,7 +55,8 @@ public class RegisFrame extends JFrame{
         centerJPanel.add(confirmPasswordField);
         add(centerJPanel);
 
-        footerJPanel.add(submitBtn);
+        footerJPanel.add(setSubmitBtn(submitBtn));
+        footerJPanel.add(insertJLabel);
         add(footerJPanel, BorderLayout.SOUTH); //naro tombol submit dibawah
 
         setSize(500, 500);
