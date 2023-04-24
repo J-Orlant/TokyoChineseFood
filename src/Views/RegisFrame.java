@@ -4,16 +4,11 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.*;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 
-public class RegisFrame extends JFrame{
+public class RegisFrame extends JInternalFrame {
 
+    private JPanel panelDasar = new JPanel();
     private JLabel headerLabel = new JLabel("REGISTER");
 
     private JPanel centerJPanel = new JPanel(new GridLayout(3,2));
@@ -45,7 +40,7 @@ public class RegisFrame extends JFrame{
 
     public RegisFrame() {
         headerLabel.setHorizontalAlignment(SwingConstants.CENTER); //biar ketengah labelny
-        add(headerLabel, BorderLayout.NORTH); //naro label login di atas
+        panelDasar.add(headerLabel, BorderLayout.NORTH); //naro label login di atas
 
         centerJPanel.add(usernameLabel);
         centerJPanel.add(usernameField);
@@ -53,18 +48,19 @@ public class RegisFrame extends JFrame{
         centerJPanel.add(passwordField);
         centerJPanel.add(confirmPassJLabel);
         centerJPanel.add(confirmPasswordField);
-        add(centerJPanel);
+        panelDasar.add(centerJPanel);
 
         footerJPanel.add(setSubmitBtn(submitBtn));
         footerJPanel.add(insertJLabel);
-        add(footerJPanel, BorderLayout.SOUTH); //naro tombol submit dibawah
+        panelDasar.add(footerJPanel, BorderLayout.SOUTH); //naro tombol submit dibawah
 
-        setSize(500, 500);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setVisible(true);
+        panelDasar.setSize(500, 500);
+        this.setSize(500, 500);
+
+        this.add(panelDasar);
     }
 
-    public static void main(String[] args) {
-        new RegisFrame();
-    }   
+//    public static void main(String[] args) {
+//        new RegisFrame();
+//    }
 }
