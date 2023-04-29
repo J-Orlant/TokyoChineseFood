@@ -49,8 +49,9 @@ public class RegisPage extends JInternalFrame {
 
         regis.setContentPane(regis.regisPanel);
         regis.setSize(500, 500);
-        regis.setVisible(true);
         regis.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        regis.setVisible(true);
+
     }
 
     {
