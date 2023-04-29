@@ -101,12 +101,14 @@ public class MainFrame extends JFrame {
         this.authMenu.getItem(0).setEnabled(false);
     }
     private void showRegisterPage(ActionEvent event) {
-        this.mainFrame.removeAll();
-
+        User user = new Waiter();
         RegisFrame regisFrame = new RegisFrame();
-        regisFrame.setVisible(true);
+        AuthController controller = new AuthController(user, regisFrame);
 
-        this.mainFrame.add(regisFrame);
+        this.mainFrame.removeAll();
+        controller.showView(mainFrame);
+        controller.regis(dataBaseRes.getUserArrayList(), mainFrame);
+
         this.authMenu.getItem(1).setEnabled(false);
     }
 

@@ -35,14 +35,20 @@ public class RegisFrame extends JInternalFrame {
         });
     }
 
-    public static void main(String[] args) {
-        RegisFrame regis = new RegisFrame();
+    public JPasswordField getPassword() {
+        return passPF;
+    }
 
-        regis.setContentPane(regis.regisPanel);
-        regis.setSize(500, 500);
-        regis.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        regis.setVisible(true);
+    public JTextField getUsername() {
+        return usernameTF;
+    }
 
+    public JPasswordField getConPassword() {
+        return confpassPF;
+    }
+
+    public JButton getActionButton() {
+        return registerBtn;
     }
 
     {

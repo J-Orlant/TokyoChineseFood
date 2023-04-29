@@ -3,10 +3,7 @@ package Controllers;
 import Models.Users.Cashier;
 import Models.Users.User;
 import Models.Users.Waiter;
-import Views.CashierFrame;
-import Views.CashierPage;
-import Views.LoginFrame;
-import Views.WaiterFrame;
+import Views.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -67,6 +64,37 @@ public class AuthController {
 
                 if(!isValid) {
                     JOptionPane.showMessageDialog(mainFrame, "Email / Password Salah");
+                }
+            }
+        });
+    }
+
+    public void regis(ArrayList<User> userArrayList, JDesktopPane mainFrame) {
+        RegisFrame frame = (RegisFrame)view;
+        frame.getActionButton().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String userEmail = frame.getUsername().getText();
+                String userPass = frame.getPassword().getText();
+                String conPass = frame.getConPassword().getText();
+                System.out.println(userPass + " " + userEmail);
+
+                boolean isValid = false;
+                System.out.println(userPass + " " + conPass);
+                if(userPass.equals(conPass)) {
+                    System.out.println("ble");
+                    isValid = true;
+                    userArrayList.add(new Waiter(userEmail, userEmail + "@gmail.com", userPass, "W" + userArrayList.size() + 1));
+
+                    WaiterFrame waiterFrame = new WaiterFrame();
+
+                    mainFrame.removeAll();
+                    waiterFrame.setVisible(true);
+                    mainFrame.add(waiterFrame);
+                }
+
+                if(!isValid) {
+                    JOptionPane.showMessageDialog(mainFrame, "Password tidak cocok!");
                 }
             }
         });
