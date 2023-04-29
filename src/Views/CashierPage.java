@@ -51,7 +51,7 @@ public class CashierPage extends JFrame {
         });
     }
 
-    public static void main(String[] args) {
+    public void showView() {
         CashierPage c = new CashierPage();
         c.setContentPane(c.panel);
         c.setSize(500, 500);
