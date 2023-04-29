@@ -7,9 +7,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-<<<<<<< Updated upstream
     <orderEntry type="library" exported="" name="forms_rt" level="project" />
-=======
->>>>>>> Stashed changes
   </component>
 </module>

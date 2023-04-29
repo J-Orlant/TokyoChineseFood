@@ -3,7 +3,6 @@ package Views;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.function.Function;
 
 public class MainFrame extends JFrame {
     private JDesktopPane mainFrame;
@@ -85,7 +84,7 @@ public class MainFrame extends JFrame {
     private void showLoginPage(ActionEvent event) {
         this.mainFrame.removeAll();
 
-        LoginPage loginPage = new LoginPage();
+        LoginFrame loginPage =  new LoginFrame();
         loginPage.setVisible(true);
 
         this.mainFrame.add(loginPage);
