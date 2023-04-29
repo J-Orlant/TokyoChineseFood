@@ -58,8 +58,6 @@ public class RegisFrame extends JInternalFrame {
         this.setSize(500, 500);
 
         this.add(panelDasar);
-        
-        int tes;
     }
 
 //    public static void main(String[] args) {
