@@ -33,7 +33,6 @@ public class WaiterPanel extends javax.swing.JInternalFrame {
     
     private String idTransaksi;
     private String idTransaksiPesanan;
-    private int stok;
     /**
      * Creates new form WaiterPanel
      */
