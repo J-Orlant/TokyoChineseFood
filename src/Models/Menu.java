@@ -1,37 +1,55 @@
 package Models;
 
 public class Menu {
-    private String namaMakanan;
-    private Integer hargaMakanan;
-    private Integer quantitas;
+    private String idMenu;
+    private String namaMenu;
+    private Integer harga;
+    private Integer stok;
 
-    public Menu (String nama, Integer harga, Integer quantitas) {
-        setNamaMakanan(nama);
-        setHargaMakanan(harga);
-        setQuantitas(quantitas);
+    public Menu(String idMenu, String namaMenu, Integer harga, Integer stok) {
+        this.idMenu = idMenu;
+        this.namaMenu = namaMenu;
+        this.harga = harga;
+        this.stok = stok;
     }
 
-    public String getNamaMakanan() {
-        return namaMakanan;
+    public Object[] parseToObject() {
+        Object[] data = {
+            this.idMenu, this.namaMenu, this.harga, this.stok
+        };
+
+        return data;
     }
 
-    public void setNamaMakanan(String namaMakanan) {
-        this.namaMakanan = namaMakanan;
+    public String getIdMenu() {
+        return idMenu;
     }
 
-    public Integer getHargaMakanan() {
-        return hargaMakanan;
+    public void setIdMenu(String idMenu) {
+        this.idMenu = idMenu;
     }
 
-    public void setHargaMakanan(Integer hargaMakanan) {
-        this.hargaMakanan = hargaMakanan;
+    public String getNamaMenu() {
+        return namaMenu;
     }
 
-    public Integer getQuantitas() {
-        return quantitas;
+    public void setNamaMenu(String namaMenu) {
+        this.namaMenu = namaMenu;
     }
 
-    public void setQuantitas(Integer quantitas) {
-        this.quantitas = quantitas;
+    public Integer getHarga() {
+        return harga;
+    }
+
+    public void setHarga(Integer harga) {
+        this.harga = harga;
+    }
+
+    public Integer getStok() {
+        return stok;
+    }
+
+    public void setStok(Integer stok) {
+        this.stok = stok;
     }
 }
