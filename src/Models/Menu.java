@@ -5,6 +5,12 @@ public class Menu {
     private Integer hargaMakanan;
     private Integer quantitas;
 
+    public Menu (String nama, Integer harga, Integer quantitas) {
+        setNamaMakanan(nama);
+        setHargaMakanan(harga);
+        setQuantitas(quantitas);
+    }
+
     public String getNamaMakanan() {
         return namaMakanan;
     }

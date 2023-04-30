@@ -1,5 +1,6 @@
 package Controllers;
 
+import Models.DataBaseRes;
 import Models.Users.Cashier;
 import Models.Users.User;
 import Models.Users.Waiter;
@@ -24,7 +25,7 @@ public class AuthController {
         mainFrame.add(view);
     }
 
-    public void login(ArrayList<User> userArrayList, JDesktopPane mainFrame) {
+    public void login(DataBaseRes dataBaseRes, JDesktopPane mainFrame) {
         LoginFrame frame = (LoginFrame)view;
         frame.getActionButton().addActionListener(new ActionListener() {
             @Override
@@ -34,7 +35,7 @@ public class AuthController {
                 System.out.println(userPass + " " + userEmail);
 
                 boolean isValid = false;
-                for (User user: userArrayList) {
+                for (User user: dataBaseRes.getUserArrayList()) {
 //                    System.out.println(user.getNama() + " == " + userEmail + ", " + user.getPassword() + " == " + userPass);
                     if(userEmail.equals(user.getEmail()) && userPass.equals(user.getPassword())) {
                         isValid = true;
@@ -50,7 +51,7 @@ public class AuthController {
                             break;
                         }
                         if(user instanceof Waiter) {
-                            WaiterFrame waiterFrame = new WaiterFrame();
+                            WaiterFrame waiterFrame = new WaiterFrame(dataBaseRes);
 
                             mainFrame.removeAll();
 
@@ -69,7 +70,7 @@ public class AuthController {
         });
     }
 
-    public void regis(ArrayList<User> userArrayList, JDesktopPane mainFrame) {
+    public void regis(DataBaseRes dataBaseRes, JDesktopPane mainFrame) {
         RegisFrame frame = (RegisFrame)view;
         frame.getActionButton().addActionListener(new ActionListener() {
             @Override
@@ -84,9 +85,9 @@ public class AuthController {
                 if(userPass.equals(conPass)) {
                     System.out.println("ble");
                     isValid = true;
-                    userArrayList.add(new Waiter(userEmail, userEmail + "@gmail.com", userPass, "W" + userArrayList.size() + 1));
+                    dataBaseRes.getUserArrayList().add(new Waiter(userEmail, userEmail + "@gmail.com", userPass, "W" + dataBaseRes.getUserArrayList().size() + 1));
 
-                    WaiterFrame waiterFrame = new WaiterFrame();
+                    WaiterFrame waiterFrame = new WaiterFrame(dataBaseRes);
 
                     mainFrame.removeAll();
                     waiterFrame.setVisible(true);

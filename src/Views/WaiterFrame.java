@@ -1,8 +1,12 @@
 package Views;
 
+import Models.DataBaseRes;
+import Models.Menu;
+
 import javax.swing.table.DefaultTableModel;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.*;
 
@@ -14,7 +18,7 @@ public class WaiterFrame extends JInternalFrame {
     LocalDateTime now = LocalDateTime.now();
 
 
-    public WaiterFrame() {
+    public WaiterFrame(DataBaseRes dataBaseRes) {
         initComponents();
 //        name.setText(data[0]);
 //        roles.setText(data[2]);
@@ -22,7 +26,7 @@ public class WaiterFrame extends JInternalFrame {
         judul();
         judulPesanan();
         judulKeranjang();
-        tampilData("");
+        tampilData(dataBaseRes.getMenuArrayList());
         tampilDataPesanan("");
         tampilDataMeja();
         tampilDataKeranjang();
@@ -73,15 +77,12 @@ public class WaiterFrame extends JInternalFrame {
         tableKeranjang = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         nama = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        meja = new javax.swing.JComboBox<>();
         jumlah = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         nama_menu = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         btnBatal = new javax.swing.JButton();
         btnTambah = new javax.swing.JButton();
-        btnDaftar = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         menu_id = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
@@ -278,16 +279,6 @@ public class WaiterFrame extends JInternalFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setText("Meja");
-
-        meja.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        meja.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mejaActionPerformed(evt);
-            }
-        });
-
         jumlah.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -312,19 +303,13 @@ public class WaiterFrame extends JInternalFrame {
             }
         });
 
-        btnDaftar.setText("Daftar");
-        btnDaftar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDaftarActionPerformed(evt);
-            }
-        });
-
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel12.setText("ID");
 
         menu_id.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         menu_id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
+//                menu_idActionPerformed(evt);
             }
         });
 
@@ -358,13 +343,7 @@ public class WaiterFrame extends JInternalFrame {
                                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(nama, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                                                .addComponent(meja, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(btnDaftar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(214, 214, 214))
+                                                .addGap(214, 518, Short.MAX_VALUE))
                                         .addGroup(pesananDefaultContainerLayout.createSequentialGroup()
                                                 .addComponent(jLabel5)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -399,7 +378,7 @@ public class WaiterFrame extends JInternalFrame {
                                                 .addGroup(pesananDefaultContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pesananDefaultContainerLayout.createSequentialGroup()
-                                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                                .addGap(0, 147, Short.MAX_VALUE)
                                                                 .addComponent(btnBatalKeranjang, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addGap(18, 18, 18)
                                                                 .addComponent(btnKonfirmasi, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -411,10 +390,7 @@ public class WaiterFrame extends JInternalFrame {
                                 .addContainerGap()
                                 .addGroup(pesananDefaultContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(nama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(meja)
-                                        .addComponent(btnDaftar))
+                                        .addComponent(nama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(10, 10, 10)
                                 .addGroup(pesananDefaultContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel5)
@@ -480,9 +456,10 @@ public class WaiterFrame extends JInternalFrame {
     }// </editor-fold>
 
     private void tableMenuMouseClicked(java.awt.event.MouseEvent evt) {
-        menu_id.setText(tableMenu.getValueAt(tableMenu.getSelectedRow(), 0).toString());
-        nama_menu.setText(tableMenu.getValueAt(tableMenu.getSelectedRow(), 1).toString());
-        harga.setText(tableMenu.getValueAt(tableMenu.getSelectedRow(), 2).toString());
+        menu_id.setText(tableMenu.getValueAt(tableMenu.getSelectedRow() + 1, 0).toString());
+        nama_menu.setText(tableMenu.getValueAt(tableMenu.getSelectedRow() + 1, 1).toString());
+        harga.setText(tableMenu.getValueAt(tableMenu.getSelectedRow() + 1, 2).toString());
+        enabled();
     }
 
     private void namaActionPerformed(java.awt.event.ActionEvent evt) {
@@ -533,7 +510,7 @@ public class WaiterFrame extends JInternalFrame {
 
     public void judul() {
         Object[] judul = {
-                "ID","Nama Menu", "Harga",
+                "Nama Menu","Harga", "Quantitas",
         };
         tabModel = new DefaultTableModel(null, judul);
         tableMenu.setModel(tabModel);
@@ -549,7 +526,7 @@ public class WaiterFrame extends JInternalFrame {
 
     public void judulKeranjang() {
         Object[] judul = {
-                "ID" ,"Nama Menu", "Harga", "Jumlah"
+                "Nama Menu", "Harga", "Jumlah"
         };
         tabModelKeranjang = new DefaultTableModel(null, judul);
         tableKeranjang.setModel(tabModelKeranjang);
@@ -559,8 +536,20 @@ public class WaiterFrame extends JInternalFrame {
 
     }
 
-    public void tampilData(String where) {
+    public void tampilData(ArrayList<Menu> menuArrayList) {
+        try {
+            for(Menu menu: menuArrayList) {
+                Object[] data = {
+                  menu.getNamaMakanan(),
+                  menu.getHargaMakanan(),
+                  menu.getQuantitas(),
+                };
 
+                tabModel.addRow(data);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void tampilDataPesanan(String where) {

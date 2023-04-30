@@ -17,6 +17,7 @@ public class DataBaseRes {
 
     public DataBaseRes () {
         initializeUser();
+        initializeMenu();
     }
 
     private void initializeUser() {
@@ -24,7 +25,10 @@ public class DataBaseRes {
         this.userArrayList.add(new Waiter("Evan", "Evan@gmail.com", "12345", "W123"));
     }
 
-
+    private void initializeMenu() {
+        this.menuArrayList.add(new Menu("Ayam", 20000, 2));
+        this.menuArrayList.add(new Menu("Bakso", 10000, 20));
+    }
 
     public ArrayList<User> getUserArrayList() {
         return userArrayList;

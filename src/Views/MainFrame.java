@@ -96,7 +96,7 @@ public class MainFrame extends JFrame {
 
         this.mainFrame.removeAll();
         controller.showView(mainFrame);
-        controller.login(dataBaseRes.getUserArrayList(), mainFrame);
+        controller.login(dataBaseRes, mainFrame);
 
         this.authMenu.getItem(0).setEnabled(false);
     }
@@ -107,7 +107,7 @@ public class MainFrame extends JFrame {
 
         this.mainFrame.removeAll();
         controller.showView(mainFrame);
-        controller.regis(dataBaseRes.getUserArrayList(), mainFrame);
+        controller.regis(dataBaseRes, mainFrame);
 
         this.authMenu.getItem(1).setEnabled(false);
     }
